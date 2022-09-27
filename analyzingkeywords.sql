@@ -61,3 +61,15 @@ SET [Estimated_CTR]= ISNULL([Estimated_CTR], 0)
 
 UPDATE monthly_search_clean
 SET [Estimated_Clicks]= ISNULL([Estimated_Clicks], 0)
+
+--Finally, we have to categorise the keywords in groups. 
+
+SELECT *,
+CASE
+	WHEN Keyword LIKE '%adiestra%' THEN 'adiestramiento'
+	WHEN Keyword LIKE '%escuela%' THEN 'escuela'
+	WHEN Keyword LIKE '%entrena%' THEN 'entrenamiento'
+	WHEN Keyword LIKE '%educa%' THEN 'educación'
+	ELSE 'otros'
+END as Categoria
+FROM monthly_search_clean
