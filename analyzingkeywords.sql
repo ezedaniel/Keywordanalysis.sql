@@ -73,3 +73,5 @@ CASE
 	ELSE 'otros'
 END as Categoria
 FROM monthly_search_clean
+
+
